@@ -1,0 +1,2 @@
+# Printdocs
+GET	/rest/users/:id/printdocs	controllers.Application.ListDocuments(id: String)
