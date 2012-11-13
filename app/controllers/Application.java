@@ -26,6 +26,8 @@ public class Application extends Controller {
   public static Result ListDocuments(String userName)
   {      
       response().setContentType("application/json");
+      response().setHeader(ACCEPT, "AQIC5wM2LY4Sfcx1mTOwfDw0gu5r0zM9l-EbjjV7UnfHXow.*AAJTSQACMDIAAlMxAAIwMw..*");
+      response().setHeader(ACCEPT, "application/json");
       return ok(populateFakeDocuments());
   }
   
