@@ -33,9 +33,32 @@ public class Application extends Controller {
   
   private static ArrayNode populateFakeDocuments()
   {
-      JsonNode json = request().body().asJson();
-      ObjectNode result = Json.newObject();
       ArrayNode array = JsonNodeFactory.instance.arrayNode();
+                
+      array.add(createFakeDocument("DOC.doc", MIMETypes.DOC));
+      array.add(createFakeDocument("DOCX.docx", MIMETypes.DOCX));
+      array.add(createFakeDocument("PDF.pdf", MIMETypes.PDF));
+      array.add(createFakeDocument("ODT.odt", MIMETypes.ODT));
+      array.add(createFakeDocument("JPG.jpg", MIMETypes.JPG));
+      array.add(createFakeDocument("GIF.gif", MIMETypes.GIF));
+      array.add(createFakeDocument("TIFF.tiff", MIMETypes.TIFF));
+      array.add(createFakeDocument("DOC.doc", MIMETypes.DOC));
+      array.add(createFakeDocument("PPT.ppt", MIMETypes.PPT));
+      array.add(createFakeDocument("PPTX.pptx", MIMETypes.PPTX));
+      array.add(createFakeDocument("ODP.odp", MIMETypes.ODP));
+      array.add(createFakeDocument("TXT.txt", MIMETypes.TXT));
+      array.add(createFakeDocument("RTF.rtf", MIMETypes.RTF));
+      array.add(createFakeDocument("HTML.html", MIMETypes.HTML));
+      array.add(createFakeDocument("XLS.xls", MIMETypes.XLS));
+      array.add(createFakeDocument("XLSX.xlsx", MIMETypes.XLSX));
+      array.add(createFakeDocument("ODS.ods", MIMETypes.ODS));
+      
+      return array;
+  }
+  
+  private static ObjectNode createFakeDocument(String filename, String mimeType)
+  {
+      ObjectNode result = Json.newObject();
       
       result.put(JSONDocumentFields.PAGE_COUNT, 2);
       result.put(JSONDocumentFields.PRINT_STATUS, "DEPRECATED");
@@ -50,13 +73,11 @@ public class Application extends Controller {
       result.put(JSONDocumentFields.PRIORITY, 0);
       result.put(JSONDocumentFields.DESCRIPTION, "");
       result.put(JSONDocumentFields.USER_ID, "sdicken");
-      result.put(JSONDocumentFields.FILENAME, "PDF.pdf");
+      result.put(JSONDocumentFields.FILENAME, filename);
       result.put(JSONDocumentFields.UPLOAD_DATE, new Date().getTime());
-      result.put(JSONDocumentFields.MIMETYPE, "application/pdf");
-      result.put(JSONDocumentFields.DUPLEX, "off");      
+      result.put(JSONDocumentFields.MIMETYPE, mimeType);
+      result.put(JSONDocumentFields.DUPLEX, "off");
       
-      array.add(result);
-      
-      return array;
+      return result;
   }
 }
