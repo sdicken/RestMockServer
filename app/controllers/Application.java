@@ -2,7 +2,6 @@ package controllers;
 
 import java.util.Date;
 
-import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.node.ArrayNode;
 import org.codehaus.jackson.node.JsonNodeFactory;
 import org.codehaus.jackson.node.ObjectNode;
@@ -24,11 +23,22 @@ public class Application extends Controller {
   }
     
   public static Result ListDocuments(String userName)
-  {      
-      response().setContentType("application/json");
-      response().setHeader(ACCEPT, "AQIC5wM2LY4Sfcx1mTOwfDw0gu5r0zM9l-EbjjV7UnfHXow.*AAJTSQACMDIAAlMxAAIwMw..*");
-      response().setHeader(ACCEPT, "application/json");
-      return ok(populateFakeDocuments());
+  {
+      if(userName.equals("sdicken"))
+      {
+          response().setContentType("application/json");
+          response().setHeader(ACCEPT, "AQIC5wM2LY4Sfcx1mTOwfDw0gu5r0zM9l-EbjjV7UnfHXow.*AAJTSQACMDIAAlMxAAIwMw..*");
+          response().setHeader(ACCEPT, "application/json");
+          return ok(populateFakeDocuments());
+      }
+      else if(userName.equals("nodocs"))
+      {
+          return ok();
+      }
+      else
+      {
+          return badRequest();
+      }
   }
   
   private static ArrayNode populateFakeDocuments()
