@@ -33,7 +33,10 @@ public class Application extends Controller {
       }
       else if(userName.equals("nodocs"))
       {
-          return ok();
+          response().setContentType("application/json");
+          response().setHeader(ACCEPT, "AQIC5wM2LY4Sfcx1mTOwfDw0gu5r0zM9l-EbjjV7UnfHXow.*AAJTSQACMDIAAlMxAAIwMw..*");
+          response().setHeader(ACCEPT, "application/json");
+          return ok(JsonNodeFactory.instance.arrayNode());
       }
       else
       {
