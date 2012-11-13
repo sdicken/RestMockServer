@@ -25,6 +25,7 @@ public class Application extends Controller {
     
   public static Result ListDocuments(String userName)
   {      
+      response().setContentType("application/json");
       return ok(populateFakeDocuments());
   }
   
