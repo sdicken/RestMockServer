@@ -36,7 +36,7 @@ public class Application extends Controller {
           response().setContentType("application/json");
           response().setHeader(ACCEPT, "AQIC5wM2LY4Sfcx1mTOwfDw0gu5r0zM9l-EbjjV7UnfHXow.*AAJTSQACMDIAAlMxAAIwMw..*");
           response().setHeader(ACCEPT, "application/json");
-          return ok(JsonNodeFactory.instance.arrayNode());
+          return ok();
       }
       else
       {
@@ -47,7 +47,7 @@ public class Application extends Controller {
   private static ArrayNode populateFakeDocuments()
   {
       ArrayNode array = JsonNodeFactory.instance.arrayNode();
-                
+      
       array.add(createFakeDocument("DOC.doc", MIMETypes.DOC));
       array.add(createFakeDocument("DOCX.docx", MIMETypes.DOCX));
       array.add(createFakeDocument("PDF.pdf", MIMETypes.PDF));
@@ -55,7 +55,6 @@ public class Application extends Controller {
       array.add(createFakeDocument("JPG.jpg", MIMETypes.JPG));
       array.add(createFakeDocument("GIF.gif", MIMETypes.GIF));
       array.add(createFakeDocument("TIFF.tiff", MIMETypes.TIFF));
-      array.add(createFakeDocument("DOC.doc", MIMETypes.DOC));
       array.add(createFakeDocument("PPT.ppt", MIMETypes.PPT));
       array.add(createFakeDocument("PPTX.pptx", MIMETypes.PPTX));
       array.add(createFakeDocument("ODP.odp", MIMETypes.ODP));
