@@ -36,12 +36,17 @@ public class Application extends Controller {
           response().setContentType("application/json");
           response().setHeader(ACCEPT, "AQIC5wM2LY4Sfcx1mTOwfDw0gu5r0zM9l-EbjjV7UnfHXow.*AAJTSQACMDIAAlMxAAIwMw..*");
           response().setHeader(ACCEPT, "application/json");
-          return ok();
+          return ok(createEmptyJsonArray());
       }
       else
       {
           return badRequest();
       }
+  }
+  
+  private static ArrayNode createEmptyJsonArray()
+  {
+      return JsonNodeFactory.instance.arrayNode();
   }
   
   private static ArrayNode populateFakeDocuments()
